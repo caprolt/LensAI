@@ -1,0 +1,19 @@
+name = "lensai-ingest"
+main = "src/index.ts"
+compatibility_date = "2023-12-01"
+
+[env.development]
+name = "lensai-ingest-dev"
+vars = { ENVIRONMENT = "development" }
+
+[[env.development.r2_buckets]]
+binding = "EVENTS_BUCKET"
+bucket_name = "lensai-events-dev"
+
+[env.production]
+name = "lensai-ingest"
+vars = { ENVIRONMENT = "production" }
+
+[[env.production.r2_buckets]]
+binding = "EVENTS_BUCKET"
+bucket_name = "lensai-events"
